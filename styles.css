@@ -101,3 +101,36 @@ hr {
 .data {
     color: hsl(259, 100%, 65%);
 }
+
+@media (max-width: 600px) {
+    .container {
+        width: 300px;
+        height: 400px;
+        border-bottom-right-radius: 80px;
+    }
+
+    .inputs {
+        width: 300px;
+    }
+
+    input {
+        margin-right: 10px;
+        margin-bottom: 50px;
+        width: 50px;
+    }
+
+    hr {
+        width: 300px;
+    }
+
+    .btn {
+        position: relative;
+        top: -40px;
+        left: 120px;
+    }
+
+    .result {
+        font-size: 3.4rem;
+        line-height: 55px;
+    }
+}
