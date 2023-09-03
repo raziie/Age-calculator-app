@@ -27,7 +27,7 @@ $(".btn").on("click", function() {
 
     var problem = false;
 
-    if (($("#day").val() === "") || ($("#day").val() > 31)) {
+    if (($("#day").val() === "") || ($("#day").val() > 31) && is31($("#month").val()) || ($("#day").val() > 30) && !is31($("#month").val())) {
         problem = true;
         $("#day").addClass("red-border");
         var label = $("label[for='day']");
@@ -74,3 +74,12 @@ $(".btn").on("click", function() {
         $("#days").text(days);
     }    
 });
+
+function is31 (month) {
+    thirtyOnes = [1,3,5,7,8,10,12];
+    if (thirtyOnes.includes(month)) {
+        return true;
+    } else {
+        return false;
+    }
+}
