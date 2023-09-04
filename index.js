@@ -27,7 +27,7 @@ $(".btn").on("click", function() {
 
     var problem = false;
 
-    if (($("#day").val() === "") || ($("#day").val() > 31) && is31($("#month").val()) || ($("#day").val() > 30) && !is31($("#month").val())) {
+    if (($("#day").val() === "") || ($("#day").val() > 31)) {
         problem = true;
         $("#day").addClass("red-border");
         var label = $("label[for='day']");
@@ -38,6 +38,7 @@ $(".btn").on("click", function() {
             $("#day-error").text("Must be a valid day");
         }
     }
+    
     if (($("#month").val() === "") || ($("#month").val() > 12)) {
         problem = true;
         $("#month").addClass("red-border");
@@ -49,6 +50,7 @@ $(".btn").on("click", function() {
             $("#month-error").text("Must be a valid month");
         }
     }
+
     if (($("#year").val() === "") || ($("#year").val() > thisYear)) {
         problem = true;
         $("#year").addClass("red-border");
@@ -59,6 +61,13 @@ $(".btn").on("click", function() {
         } else {
             $("#year-error").text("Must be in the past");
         }
+    }
+
+    if (($("#day").val() == 31) && !is31($("#month").val())) {
+        problem = true;
+        $("input").addClass("red-border");
+        $("label").addClass("red");
+        $("#day-error").text("Must be a valid date");
     }
 
     if (!problem) {
